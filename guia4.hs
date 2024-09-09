@@ -22,8 +22,10 @@ sumaImpares n | n <= 0 = 0
 
 
 -- Ej 5
---medioFact :: Int -> Int
---medioFact | n >= 0 = 
+medioFact :: Int -> Int
+medioFact n | n == 0 = 0
+    | n == 1 = 1
+    | otherwise = n * medioFact(n-2)
 
 
 -- Ej de clase
@@ -34,3 +36,8 @@ cantDigitos n | n <= 10 = 1
 iesimoDigito :: Int -> Int -> Int
 iesimoDigito n m | cantDigitos n == m = mod n 10
                  | otherwise = iesimoDigito (div n 10) m
+
+-- Test
+sumaDIg :: Int -> Int
+sumaDIg 0 = 0 
+sumaDIg n = (mod n 10) + sumaDIg (div n 10)
